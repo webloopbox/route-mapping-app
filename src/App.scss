@@ -146,3 +146,37 @@ input:focus {
     background: linear-gradient( 83.2deg,  rgba(150,93,233,1) 10.8%, rgba(99,88,238,1) 94.3% );
     z-index: 10000;
 }
+
+// recent routes //
+
+.recent-routes-wrapper {
+    margin-top: 50px;
+    width: 80%;
+    max-width: 850px;
+}
+
+.container h2 {
+    color: #c095ff;
+}
+
+.recent-route {
+    display: block;
+    margin: 8px 0;
+    padding: 20px 0 20px 20px;
+    width: 100%;
+    text-align: left;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: #5f5454;
+}
+
+.recent-route:hover {
+    cursor: pointer;
+}
+
+.recent-routes {
+    display: flex;
+    flex-direction: column-reverse;
+}

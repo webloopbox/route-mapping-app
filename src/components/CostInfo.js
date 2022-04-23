@@ -5,17 +5,16 @@ import { useSelector, useDispatch } from 'react-redux'
 export const CostInfo = () => {
 
     const [cost, setCost] = useState(null)
-    const [totalDistance, setTotalDistance] = useState(null)
     const [rate, setRate] = useState(null)
     const [time, setTime] = useState(null)
 
     const dispatch = useDispatch()
 
-    console.log(rate);
+    const { distance } = useSelector((state) => state.search)
 
     const calcEstimateCost = () => {
-        const cost = Math.floor(rate * totalDistance * 1.1);
-        const time = Math.floor(totalDistance / 800);
+        const cost = Math.floor(rate * distance * 1.1);
+        const time = distance / 800;
         setCost(cost)
         setTime(time)
     }
@@ -30,7 +29,7 @@ export const CostInfo = () => {
                 <button className='cost-btn' onClick={calcEstimateCost}>Sprawdź</button>
             </div>
             <div className='total-distance'>
-                <p><strong>Dystans:</strong> {totalDistance}km</p>
+                <p><strong>Dystans:</strong> {distance}km</p>
                 {cost && <p><strong>Szacowany koszt:</strong> {cost}zł</p>}
                 {time && <p><strong>Czas przejazdu:</strong> {time} dni</p>}
             </div>

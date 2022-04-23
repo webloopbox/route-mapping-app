@@ -30,11 +30,19 @@ const searchSlice = createSlice({
         pointA: {},
         pointB: {},
         loading: 'false',
-        locationError: ''
+        locationError: '',
+        distance: null
     },
     reducers: {
+        setDistance: (state, { payload }) => {
+            state.distance = payload
+        },
         setLocationError: (state, { payload }) => {
             state.error = payload
+        },
+        searchRecent: (state, { payload }) => {
+            state.pointA = payload.pointA
+            state.pointB = payload.pointB
         }
     },
     extraReducers: {
@@ -55,5 +63,5 @@ const searchSlice = createSlice({
     }
 })
 
-export const { setLocationError } = searchSlice.actions
+export const { setLocationError, setDistance, searchRecent } = searchSlice.actions
 export default searchSlice.reducer

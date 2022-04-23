@@ -1,8 +1,8 @@
 import { Link, useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { fetchPositions, setLocationError } from '../store/searchSlice'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import { fetchPositions, searchRecent } from '../store/searchSlice'
 
 const initialValues = {
     pointA: '',
@@ -19,7 +19,8 @@ const Home = () => {
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
-    const { locationError, pointA } = useSelector((state) => state.search)
+    const { locationError } = useSelector((state) => state.search)
+    const { recentRoutes } = useSelector((state) => state.routes)
 
     const onSubmit = (values) => {
         dispatch(fetchPositions({
@@ -30,6 +31,11 @@ const Home = () => {
         }).catch((err) => {
             console.log('Error: ', err);
         })
+    }
+
+    const openRecentRoute = (pos) => {
+        dispatch(searchRecent(pos))
+        navigate('/map')
     }
 
     return (
@@ -45,6 +51,20 @@ const Home = () => {
                 </Form>
             </Formik>
             {locationError && <p>{locationError}</p>}
+            <div className='recent-routes-wrapper'>
+                <h2>Ostatnio szukane: </h2>
+                <div className='recent-routes'>
+
+                    {recentRoutes.map((pos, index) => {
+                        let origin = (pos.pointA.address.label).split(',')[0]
+                        let destination = (pos.pointB.address.label).split(',')[0]
+                        return (
+                            <button key={index} onClick={() => openRecentRoute(pos)} className="recent-route">{origin} to {destination}</button>
+                        )
+                    })}
+
+                </div>
+            </div>
         </div>
     )
 }
