@@ -12,7 +12,6 @@ export const CostInfo = () => {
     const calcEstimateCost = (e) => {
         e.preventDefault()
         const cost = Math.floor(rate * distance * 1.1);
-        const time = distance / 800;
         setCost(cost)
     }
 
@@ -34,7 +33,7 @@ export const CostInfo = () => {
                 {time && <p><strong>Czas przejazdu:</strong> {time}</p>}
                 {cost && <p><strong>Szacowany koszt:</strong> {cost}zł</p>}
             </div>
-            <button className='switch-btn' onClick={toggleInfo}>C</button>
+            <button className='switch-btn' onClick={toggleInfo}>{toggle ? '❯' : '❮'}</button>
         </div>
     )
 }

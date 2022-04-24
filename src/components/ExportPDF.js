@@ -14,7 +14,7 @@ pdfMake.fonts = {
     }
 };
 
-export const ExportPDF = ({ element }) => {
+export const ExportPDF = () => {
 
     const dispatch = useDispatch()
 
