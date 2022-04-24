@@ -1,0 +1,109 @@
+button {
+    border: none;
+    color: white;
+    transition: 0.2s transform, 0.2s visibility, 0.2s opacity;
+}
+
+.designate:hover,
+.recent-route:hover,
+.back:hover,
+.pdf-btn:hover,
+.cost-btn:hover {
+    cursor: pointer;
+    transform: translateY(1px);
+}
+
+button:focus {
+    outline: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+}
+
+.leaflet-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+.container {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.container > h2 {
+    font-size: 1.2rem;
+    color: #c095ff;
+}
+
+.designate {
+    display: block;
+    @include btn;
+    margin-top: 10px;
+    width: 250px;
+    box-sizing: content-box;
+    text-align: center;
+    font-size: 1.1rem;
+}
+
+.point {
+    display: block;
+    border: none;
+    margin: 15px 0;
+    width: 250px;
+    font-size: 1.1rem;
+    padding: 15px 10px;
+    border-radius: 5px;
+}
+
+.error {
+    min-height: 25px;
+    color: rgb(255, 195, 195);
+}
+
+// recent routes //
+
+.recent-routes-wrapper {
+    margin-top: 50px;
+    width: 80%;
+    max-width: 850px;
+    background: #423b3b;
+    border-radius: 5px;
+    padding: 8px 0;
+}
+
+.container .recent-routes-wrapper h2 {
+    color: white;
+    padding-left: 15px;
+    margin: 15px 0;
+}
+
+.recent-routes {
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.recent-route {
+    display: block;
+    margin: 8px 20px;
+    box-sizing: border-box;
+    padding: 20px 0 20px 20px;
+    text-align: left;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    background-color: #5f5454;
+}
+
+.recent-route:hover {
+    cursor: pointer;
+}

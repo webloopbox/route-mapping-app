@@ -60,7 +60,7 @@ const Home = () => {
                         let origin = (pos.pointA.address.label).split(',')[0]
                         let destination = (pos.pointB.address.label).split(',')[0]
                         return (
-                            <button key={index} onClick={() => openRecentRoute(pos)} className="recent-route">{origin} to {destination}</button>
+                            <button key={index} onClick={() => openRecentRoute(pos)} className="recent-route">{origin} &#8594; {destination}</button>
                         )
                     })}
 

@@ -19,6 +19,7 @@ export const ExportPDF = ({ element }) => {
     const dispatch = useDispatch()
 
     const { pdf, pdfEnable } = useSelector((state) => state.pdf)
+    const { pointA, pointB } = useSelector((state) => state.search)
 
     useEffect(() => {
         setTimeout(() => {
@@ -27,10 +28,17 @@ export const ExportPDF = ({ element }) => {
             let firstStep = document.querySelector('.leaflet-routing-alt').querySelector(':nth-child(1)').innerHTML
             let time = document.querySelector('.leaflet-routing-alt').querySelector(':nth-child(2)').innerHTML
 
+            let fromTo = `${pointA.address.label.split(',')[0]} → ${pointB.address.label.split(',')[0]}`
+
+
             const docDefinition = {
                 content: [
                     {
-                        text: 'Start from: ',
+                        text: fromTo,
+                        margin: [0, 0, 0, 20],
+                    },
+                    {
+                        text: 'Start from:',
                         style: 'start',
                         margin: [0, 5]
                     },

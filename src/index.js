@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import Home from './components/Home'
 import Map from './components/Map'
 import store from './store'
-import './App.scss';
+import './styles/index.scss';
 
 const App = () => {
   return (
