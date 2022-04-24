@@ -82,7 +82,15 @@ input:focus {
 }
 
 .leaflet-top.leaflet-right {
-    display: none;
+    //display: none;
+}
+.leaflet-routing-alt {
+    width: 100%;
+    color: black;
+}
+td {
+    border: 0.5px solid black;
+    font-size: 12px;
 }
 .route-info-wrapper{
     display: flex;
@@ -144,7 +152,12 @@ input:focus {
     padding: 10px 10px;
     border-radius: 5px;
     background: linear-gradient( 83.2deg,  rgba(150,93,233,1) 10.8%, rgba(99,88,238,1) 94.3% );
+    transition: 0.2s transform;
     z-index: 10000;
+}
+
+.back:hover {
+    transform: translateY(1px);
 }
 
 // recent routes //
@@ -179,4 +192,17 @@ input:focus {
 .recent-routes {
     display: flex;
     flex-direction: column-reverse;
+}
+
+// pdf btn //
+
+.pdf-btn {
+    position: fixed;
+    top: 25px;
+    left: 130px;
+    padding: 10px 10px;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: linear-gradient( 83.2deg,  rgba(150,93,233,1) 10.8%, rgba(99,88,238,1) 94.3% );
+    z-index: 10000;
 }

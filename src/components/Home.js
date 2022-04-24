@@ -1,8 +1,8 @@
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
-import { fetchPositions, searchRecent } from '../store/searchSlice'
+import { fetchPositions, searchRecent, setMapActive } from '../store/searchSlice'
 
 const initialValues = {
     pointA: '',
@@ -27,6 +27,7 @@ const Home = () => {
             pointA: values.pointA,
             pointB: values.pointB
         })).unwrap().then(() => {
+            dispatch(setMapActive(true))
             navigate('/map')
         }).catch((err) => {
             console.log('Error: ', err);

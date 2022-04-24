@@ -13,7 +13,7 @@ export const fetchPositions = createAsyncThunk('search/position', async (payload
                 resB.json(),
             ])
 
-            if (pointA.items.length == 0 || pointA.items.length == 0) {
+            if (pointA.items.length == 0 || pointB.items.length == 0) {
                 throw 'Podano nieistniejącą lokalizację!'
             } else {
                 return { pointA, pointB } // return A, B points
@@ -31,11 +31,16 @@ const searchSlice = createSlice({
         pointB: {},
         loading: 'false',
         locationError: '',
-        distance: null
+        distance: null,
+        time: null,
+        mapActive: false
     },
     reducers: {
         setDistance: (state, { payload }) => {
             state.distance = payload
+        },
+        setTime: (state, { payload }) => {
+            state.time = payload
         },
         setLocationError: (state, { payload }) => {
             state.error = payload
@@ -43,6 +48,9 @@ const searchSlice = createSlice({
         searchRecent: (state, { payload }) => {
             state.pointA = payload.pointA
             state.pointB = payload.pointB
+        },
+        setMapActive: (state, { payload }) => {
+            state.mapActive = payload
         }
     },
     extraReducers: {
@@ -63,5 +71,5 @@ const searchSlice = createSlice({
     }
 })
 
-export const { setLocationError, setDistance, searchRecent } = searchSlice.actions
+export const { setLocationError, setDistance, searchRecent, setTime, setMapActive } = searchSlice.actions
 export default searchSlice.reducer
