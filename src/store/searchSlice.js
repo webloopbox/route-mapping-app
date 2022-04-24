@@ -33,7 +33,7 @@ const searchSlice = createSlice({
         locationError: '',
         distance: null,
         time: null,
-        mapActive: false
+        mapActive: false,
     },
     reducers: {
         setDistance: (state, { payload }) => {
@@ -51,7 +51,7 @@ const searchSlice = createSlice({
         },
         setMapActive: (state, { payload }) => {
             state.mapActive = payload
-        }
+        },
     },
     extraReducers: {
         [fetchPositions.pending]: (state) => {
