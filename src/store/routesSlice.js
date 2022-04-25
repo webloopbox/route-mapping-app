@@ -10,7 +10,7 @@ const routesSlice = createSlice({
             let checkRepeat = state.recentRoutes.find((el) => {
                 return (el.pointA.id == payload.pointA.id) && (el.pointB.id === payload.pointB.id)
             })
-            console.log("Repeat: ", checkRepeat);
+
             if (!checkRepeat) {
                 state.recentRoutes.push(payload)
             }
