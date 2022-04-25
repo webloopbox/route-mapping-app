@@ -23,7 +23,7 @@ const Routing = ({ pointA, pointB }) => {
         instance.on('routesfound', (e) => {
             let routes = e.routes;
             let summary = routes[0].summary;
-            let totalTime = moment.utc(1000 * summary.totalDistance).format("H[h] mm[m]")
+            let totalTime = moment.utc(1000 * summary.totalTime).format("H[h] mm[m]")
             console.log('total time: ', totalTime);
             let totalDistance = Math.floor(summary.totalDistance / 1000)
             dispatch(setTime(totalTime))
